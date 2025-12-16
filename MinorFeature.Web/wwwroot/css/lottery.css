@@ -1,0 +1,63 @@
+﻿.lottInfo{
+    border:2px solid #808080;
+    border-radius:10px;
+    margin:10px 0;
+    padding:10px;
+    max-height:50rem;
+    overflow-y:auto;
+}
+.lott{
+    border-bottom:1px dashed #808080;
+    margin-bottom:10px;
+}
+.flexwrap_7BoT9 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.circleall_1lvti {
+    position: relative;
+    margin-bottom: 0.7rem;
+    margin-right: 0.6rem;
+}
+.circle_iCmiK {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(180deg, #FE8A5C 0%, #FF4D4D 100%);
+    position: relative;
+    z-index: 1;
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    color: #fff;
+}
+.circle_blue {
+    background-image: linear-gradient(180deg, #31CAF5 0%, #198CFF 100%);
+}
+.number_2xOZd {
+    font-weight: var(--cos-font-medium);
+    -webkit-text-stroke: var(--cos-font-medium-stroke);
+    font-family: PingFang SC,Arial,Helvetica,sans-serif;
+    font-family: BaiduNumberPlus,sans-serif;
+    font-size: 1rem;
+    line-height: 1rem;
+}
+.shadow_3CTfJ {
+    position: absolute;
+    z-index: 0;
+    bottom: -0.5rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    background-image: url(https://gips3.baidu.com/it/u=227685443,1095441643&fm=3028&app=3028&f=PNG&fmt=auto&q=75&size=f96_36);
+    -webkit-background-size: contain;
+    background-size: contain;
+}

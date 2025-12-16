@@ -1,0 +1,19 @@
+﻿.input-group-addon{
+    display: flex;
+    width: 10%;
+    justify-content: center;
+    align-items: center;
+}
+.form-check-label input[type="checkbox"] {
+    position: relative;
+    /* 关键：垂直居中对齐 */
+    vertical-align: text-bottom;
+    /* 可选：微调间距，避免文字贴太紧 */
+    margin-right: 6px;
+    /* 可选：统一复选框大小（部分浏览器默认大小不一致） */
+    width: 16px;
+    height: 16px;
+}
+.text-danger ul {
+    list-style-type: none; /* 移除项目符号（小标） */
+}

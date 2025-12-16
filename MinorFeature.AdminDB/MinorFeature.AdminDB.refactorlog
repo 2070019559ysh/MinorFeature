@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="7ba6a7fd-46dd-4110-86d0-a8bfe940ab95" ChangeDateTime="12/05/2025 07:08:53">
+    <Property Name="ElementName" Value="[dbo].[AdminUser].[Email]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AdminUser]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LoginNum" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="60a1938f-64fd-4e4d-851d-359b2aebf65f" ChangeDateTime="12/05/2025 07:09:48">
+    <Property Name="ElementName" Value="[dbo].[AdminUser].[LoginNum]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AdminUser]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LgAccount" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5f74ca41-9c64-4e88-a142-748b967991cf" ChangeDateTime="12/05/2025 07:20:37">
+    <Property Name="ElementName" Value="[dbo].[AdminUser].[Sex]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AdminUser]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Gender" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="98e27830-f110-441a-94b0-247e890ec43d" ChangeDateTime="12/05/2025 08:28:39">
+    <Property Name="ElementName" Value="[dbo].[AdminUser].[Creatime]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AdminUser]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Createime" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0f928e81-ad03-4f24-95df-96b9170c91b1" ChangeDateTime="12/05/2025 08:28:51">
+    <Property Name="ElementName" Value="[dbo].[AdminUser].[Createime]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AdminUser]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CreateTime" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d5ac6a70-7d9a-4591-b2c0-fd74cfca03a0" ChangeDateTime="12/08/2025 06:32:13">
+    <Property Name="ElementName" Value="[dbo].[AdminUser].[PassWorld]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AdminUser]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PasswordHash" />
+  </Operation>
+</Operations>

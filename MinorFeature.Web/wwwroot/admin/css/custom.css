@@ -1,0 +1,37 @@
+/**
+ *
+ * Apply Here your Custom CSS
+ *
+*/
+
+#header-logo {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+    #header-logo a {
+        color: #fff;
+    }
+
+    #header-logo img {
+        max-height: 40px;
+    }
+.visible-xs, .visible-sm, .visible-md, .visible-lg, tr.visible-xs, tr.visible-sm, tr.visible-md, tr.visible-lg, th.visible-xs, th.visible-sm, th.visible-md, th.visible-lg, td.visible-xs, td.visible-sm, td.visible-md, td.visible-lg {
+    display: none !important;
+}
+@media (max-width: 767px) {
+    .visible-xs {
+        display: block !important;
+    }
+}
+.pull-left {
+    float: left !important;
+}
+.pull-right {
+    float: right !important;
+}
