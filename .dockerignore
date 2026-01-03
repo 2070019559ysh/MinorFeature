@@ -1,0 +1,14 @@
+# .NET Core 2.2 本地编译产物
+bin/
+obj/
+# Visual Studio 配置文件
+*.user
+*.suo
+# Git 相关文件
+.git/
+.gitignore
+# Docker 相关文件
+Dockerfile
+.dockerignore
+# 开发环境配置
+appsettings.Development.json
