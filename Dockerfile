@@ -1,5 +1,5 @@
-# 阶段1：构建项目（使用官方 .NET SDK 镜像，包含编译工具和 NuGet 环境）
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# 阶段1：构建项目（使用 .NET Core 2.2 SDK 镜像，用于编译和还原依赖）
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
 # 设置工作目录
 WORKDIR /src
 
@@ -14,17 +14,17 @@ COPY . ./
 # 第三步：编译发布项目（Release 版本，输出到 out 目录）
 RUN dotnet publish -c Release -o out
 
-# 阶段2：运行项目（使用官方 .NET 运行时镜像，体积更小，运行更高效）
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+# 阶段2：运行项目（使用 .NET Core 2.2 ASP.NET Core 运行时镜像，体积更小）
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS runtime
 # 设置工作目录
 WORKDIR /app
 
 # 从构建阶段复制编译产物（out 目录）到运行阶段的 app 目录
 COPY --from=build /src/out ./
 
-# 关键配置：读取 Render 自动分配的 PORT 环境变量（适配 Render 端口要求）
-ENV ASPNETCORE_URLS=http://0.0.0.0:${PORT}
-EXPOSE ${PORT}
+# 关键配置1：暴露端口（Render 会自动映射，此处先固定一个基础端口，后续代码适配动态 PORT）
+EXPOSE 80
+EXPOSE 5000
 
 # 启动命令：替换为你的项目名.dll（与 .csproj 文件名一致，无 .csproj 后缀）
-ENTRYPOINT ["dotnet", "YourProjectName.dll"]
+ENTRYPOINT ["dotnet", "MinorFeature.Web.dll"]
