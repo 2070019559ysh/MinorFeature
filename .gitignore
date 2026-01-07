@@ -14,12 +14,15 @@ x64/
 [Bb]in/
 [Oo]bj/
 .vs/
+out/
+publish/
 
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
+*.dll
 *.jfm
 *_i.c
 *_p.c
