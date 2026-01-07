@@ -23,7 +23,7 @@ COPY MinorFeature.BLL/ MinorFeature.BLL/
 COPY MinorFeature.Web/ MinorFeature.Web/
 
 # 第三步：编译发布项目（Release 版本，输出到 out 目录）
-RUN dotnet publish MinorFeature.Web/MinorFeature.Web.csproj -c Release -o out
+RUN dotnet publish MinorFeature.Web/MinorFeature.Web.csproj -c Release -o /src/out --no-restore
 
 # 阶段2：运行项目（使用 .NET Core 2.2 ASP.NET Core 运行时镜像，体积更小）
 FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS runtime
