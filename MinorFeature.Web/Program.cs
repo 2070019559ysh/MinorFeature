@@ -19,8 +19,8 @@ namespace MinorFeature.Web
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args)
         {
-            // 关键：读取 Render 分配的 PORT 环境变量，fallback 到 5000
-            var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+            // 关键：读取 Render 分配的 PORT 环境变量，fallback 到 8080
+            var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
             var url = $"http://0.0.0.0:{port}"; // 必须绑定 0.0.0.0，否则 Render 无法访问
 
             return WebHost.CreateDefaultBuilder(args)
