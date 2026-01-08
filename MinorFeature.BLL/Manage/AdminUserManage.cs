@@ -14,18 +14,18 @@ namespace MinorFeature.BLL.Manage
     /// </summary>
     public class AdminUserManage : IAdminUserManage
     {
-        private readonly RedisHelper redisHelper;
-        private readonly IAdminUserService userService;
+        //private readonly RedisHelper redisHelper;
+        //private readonly IAdminUserService userService;
 
         /// <summary>
         /// 实例化管理用户业务处理实例
         /// </summary>
         /// <param name="userService">依赖注入用户数据处理实例</param>
-        public AdminUserManage(IAdminUserService userService)
-        {
-            redisHelper = new RedisHelper();
-            this.userService = userService;
-        }
+        //public AdminUserManage(IAdminUserService userService)
+        //{
+        //    redisHelper = new RedisHelper();
+        //    this.userService = userService;
+        //}
 
         /// <summary>
         /// 新增管理用户
@@ -49,18 +49,18 @@ namespace MinorFeature.BLL.Manage
                 result.Message = "用户密码不能为空";
                 return result;
             }
-            if (userService.ExistsUser(user.LgAccount))
-            {
-                result.RCode = StatusCode.Exists;
-                result.Message = "用户账号已经存在";
-                return result;
-            }
+            //if (userService.ExistsUser(user.LgAccount))
+            //{
+            //    result.RCode = StatusCode.Exists;
+            //    result.Message = "用户账号已经存在";
+            //    return result;
+            //}
             ProcessResult checkResult = CheckEmail(user.Email);//验证邮箱账号
             if (checkResult.RCode != StatusCode.Success) return checkResult;
             user.PasswordHash = EncryptHelper.HashMD532(user.PasswordHash);//密码加密保存
             user.Status = (int)UserStatus.Normal;
             user.CreateTime = DateTime.Now;
-            userService.AddAdminUser(user);
+            //userService.AddAdminUser(user);
             result.RCode = StatusCode.Success;
             result.Message = "成功";
             return result;
@@ -80,7 +80,7 @@ namespace MinorFeature.BLL.Manage
                 result.Message = "用户设置账号不能为空";
             }
             lgAccount = Regex.Replace(lgAccount, @"\s+", "");//去掉多余空白字符
-            result.ResultData = userService.ExistsUser(lgAccount);
+            //result.ResultData = userService.ExistsUser(lgAccount);
             result.RCode = StatusCode.Success;
             result.Message = "查询成功";
             return result;
@@ -97,7 +97,7 @@ namespace MinorFeature.BLL.Manage
             ProcessResult checkResult = CheckEmail(email);//验证邮箱账号
             if (checkResult.RCode != StatusCode.Success) return checkResult;
             ProcessResult<bool> result = new ProcessResult<bool>();
-            result.ResultData = userService.ExistsUser(email, userStatus);
+            //result.ResultData = userService.ExistsUser(email, userStatus);
             result.RCode = StatusCode.Success;
             result.Message = "查询成功";
             return result;
@@ -126,36 +126,36 @@ namespace MinorFeature.BLL.Manage
             userName = Regex.Replace(userName, @"\s+", "");//去掉多余空白字符
             passWord = EncryptHelper.HashMD532(passWord);//验证MD5的值
             string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            AdminUser adminUser;
-            if (Regex.IsMatch(userName, pattern))//邮箱登录
-            {
-                adminUser = userService.GetUserByEmail(userName);
-            }
-            else //账号登录
-            {
-                adminUser = userService.GetAdminUser(userName);
-            }
-            if(adminUser is null)
-            {
-                loginResult.RCode = StatusCode.NotFound;
-                loginResult.Message = "账号不存在";
-                return loginResult;
-            }
-            else if (!adminUser.PasswordHash.Equals(passWord,StringComparison.CurrentCultureIgnoreCase))
-            {
-                loginResult.RCode = StatusCode.ParamError;
-                loginResult.Message = "密码错误";
-                return loginResult;
-            }
-            else if(!(adminUser.Status == (int)UserStatus.Normal))
-            {
-                loginResult.RCode = StatusCode.Refuse;
-                loginResult.Message = "被拒绝登录";
-                return loginResult;
-            }
+            //AdminUser adminUser;
+            //if (Regex.IsMatch(userName, pattern))//邮箱登录
+            //{
+            //    adminUser = userService.GetUserByEmail(userName);
+            //}
+            //else //账号登录
+            //{
+            //    adminUser = userService.GetAdminUser(userName);
+            //}
+            //if(adminUser is null)
+            //{
+            //    loginResult.RCode = StatusCode.NotFound;
+            //    loginResult.Message = "账号不存在";
+            //    return loginResult;
+            //}
+            //else if (!adminUser.PasswordHash.Equals(passWord,StringComparison.CurrentCultureIgnoreCase))
+            //{
+            //    loginResult.RCode = StatusCode.ParamError;
+            //    loginResult.Message = "密码错误";
+            //    return loginResult;
+            //}
+            //else if(!(adminUser.Status == (int)UserStatus.Normal))
+            //{
+            //    loginResult.RCode = StatusCode.Refuse;
+            //    loginResult.Message = "被拒绝登录";
+            //    return loginResult;
+            //}
             loginResult.RCode = StatusCode.Success;
             loginResult.Message = "查询成功";
-            loginResult.ResultData = adminUser;
+            //loginResult.ResultData = adminUser;
             return loginResult;
         }
         /// <summary>

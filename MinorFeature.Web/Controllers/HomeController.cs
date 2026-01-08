@@ -19,12 +19,12 @@ namespace MinorFeature.Web.Controllers
         /// 授权访问的Cookie名称
         /// </summary>
         private const string authCookie = "AuthCookie";
-        private readonly IAdminUserManage userManage;
+        //private readonly IAdminUserManage userManage;
 
-        public HomeController(IAdminUserManage userManage)
-        {
-            this.userManage = userManage;
-        }
+        //public HomeController(IAdminUserManage userManage)
+        //{
+        //    this.userManage = userManage;
+        //}
 
         public IActionResult Index()
         {
@@ -56,7 +56,18 @@ namespace MinorFeature.Web.Controllers
         {
             if (!ModelState.IsValid)
                 return View(loginModel);
-            var loginResult = userManage.LoginUser(loginModel.UserName, loginModel.PassWord);
+            var loginResult = new ProcessResult<AdminUser>()
+            {
+                RCode = BLL.StatusCode.Success,
+                ResultData = new AdminUser()
+                {
+                    Id=1,
+                    LgAccount= "MF_Admin",
+                    Email="admin@qq.com",
+                    NickName= "管理员",
+                    Gender="M"
+                }
+            };//userManage.LoginUser(loginModel.UserName, loginModel.PassWord);
             AdminUser user = loginResult.ResultData;
             if (loginResult.RCode == BLL.StatusCode.Success)
             {

@@ -47,9 +47,9 @@ namespace MinorFeature.Web
                 options.Cookie.HttpOnly = true;
                 //options.Cookie.SecurePolicy = CookieSecurePolicy.Always;//要求Https的访问
             });
-            services.AddDbContext<MFAdminDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<MFAdminDbContext>(options =>
+            //    options.UseSqlServer(
+            //        Configuration.GetConnectionString("DefaultConnection")));
             //services.AddDefaultIdentity<AdminUser>()
             //    .AddDefaultUI(UIFramework.Bootstrap4)
             //    .AddEntityFrameworkStores<MFAdminDbContext>();
