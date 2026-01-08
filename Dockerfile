@@ -37,5 +37,8 @@ COPY --from=build /src/out ./
 EXPOSE 80
 EXPOSE 5000
 
+# 先打印目录内容（关键：验证 dll 是否存在，Runtime logs 会显示此输出）
+RUN ls -la /app
+
 # 启动命令：替换为你的项目名.dll（与 .csproj 文件名一致，无 .csproj 后缀）
-ENTRYPOINT ["dotnet", "MinorFeature.Web.dll"]
+ENTRYPOINT ["dotnet", "/app/MinorFeature.Web.dll"]
